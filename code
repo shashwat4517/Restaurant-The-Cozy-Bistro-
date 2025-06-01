@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Cozy Bistro offers exquisite dishes in a warm, inviting atmosphere. Explore our menu, make a reservation, and visit us today!">
+    <meta name="keywords" content="restaurant, cozy bistro, dining, food, menu, reservation, fine dining">
+    <meta name="author" content="The Cozy Bistro">
+    <meta name="robots" content="index, follow">
+    <title>The Cozy Bistro - Fine Dining & Reservations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .menu-item img {
+            display: block;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.375rem;
+        }
+        .menu-item img:not([src]) {
+            background-color: #e5e7eb;
+            background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a000');
+            background-size: cover;
+            background-position: center;
+        }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+            .menu-item img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-amber-600">The Cozy Bistro</h1>
+            <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+            <ul id="nav-links" class="hidden md:flex md:space-x-6">
+                <li><a href="#home" class="hover:text-amber-600 transition">Home</a></li>
+                <li><a href="#menu" class="hover:text-amber-600 transition">Menu</a></li>
+                <li><a href="#reservation" class="hover:text-amber-600 transition">Reservation</a></li>
+                <li><a href="#about" class="hover:text-amber-600 transition">About</a></li>
+                <li><a href="#contact" class="hover:text-amber-600 transition">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <ul class="flex flex-col items-center py-4">
+                <li class="py-2"><a href="#home" class="hover:text-amber-600 transition">Home</a></li>
+                <li class="py-2"><a href="#menu" class="hover:text-amber-600 transition">Menu</a></li>
+                <li class="py-2"><a href="#reservation" class="hover:text-amber-600 transition">Reservation</a></li>
+                <li class="py-2"><a href="#about" class="hover:text-amber-600 transition">About</a></li>
+                <li class="py-2"><a href="#contact" class="hover:text-amber-600 transition">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white">
+        <div class="text-center bg-black bg-opacity-50 p-8 rounded-lg">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Welcome to The Cozy Bistro</h2>
+            <p class="text-lg md:text-xl mb-6">Savor exquisite dishes in a warm, inviting atmosphere.</p>
+            <a href="#reservation" class="bg-amber-600 text-white px-6 py-3 rounded-full hover:bg-amber-700 transition">Reserve a Table</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Our Menu</h2>
+            <!-- Menu Filters -->
+            <div class="flex justify-center space-x-4 mb-8 flex-wrap">
+                <button data-category="all" class="menu-filter bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700 transition">All</button>
+                <button data-category="appetizers" class="menu-filter bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-amber-600 hover:text-white transition">Appetizers</button>
+                <button data-category="mains" class="menu-filter bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-amber-600 hover:text-white transition">Mains</button>
+                <button data-category="desserts" class="menu-filter bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-amber-600 hover:text-white transition">Desserts</button>
+            </div>
+            <!-- Menu Items -->
+            <div id="menu-items" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Menu Item 1: Bruschetta -->
+                <div class="menu-item bg-white p-6 rounded-lg shadow-md" data-category="appetizers">
+                    <img src="https://images.unsplash.com/photo-1625225233840-695456021cde" alt="Bruschetta with fresh tomatoes and basil" class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Bruschetta</h3>
+                    <p class="text-gray-600 mb-4">Toasted bread topped with fresh tomatoes, basil, and garlic.</p>
+                    <p class="text-amber-600 font-bold">$8.99</p>
+                </div>
+                <!-- Menu Item 2: Grilled Salmon -->
+                <div class="menu-item bg-white p-6 rounded-lg shadow-md" data-category="mains">
+                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3" alt="Grilled Salmon with lemon herb sauce" class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Grilled Salmon</h3>
+                    <p class="text-gray-600 mb-4">Served with lemon herb sauce and roasted vegetables.</p>
+                    <p class="text-amber-600 font-bold">$18.99</p>
+                </div>
+                <!-- Menu Item 3: Chocolate Lava Cake -->
+                <div class="menu-item bg-white p-6 rounded-lg shadow-md" data-category="desserts">
+                    <img src="https://images.unsplash.com/photo-1551218372-a8789b81b253" alt="Chocolate Lava Cake with ice cream" class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Chocolate Lava Cake</h3>
+                    <p class="text-gray-600 mb-4">Warm chocolate cake with a molten center, served with vanilla ice cream.</p>
+                    <p class="text-amber-600 font-bold">$7.99</p>
+                </div>
+                <!-- Menu Item 4: Caesar Salad -->
+                <div class="menu-item bg-white p-6 rounded-lg shadow-md" data-category="appetizers">
+                    <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9" alt="Caesar Salad with romaine and croutons" class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Caesar Salad</h3>
+                    <p class="text-gray-600 mb-4">Crisp romaine, croutons, parmesan, and classic Caesar dressing.</p>
+                    <p class="text-amber-600 font-bold">$9.99</p>
+                </div>
+                <!-- Menu Item 5: Margherita Pizza -->
+                <div class="menu-item bg-white p-6 rounded-lg shadow-md" data-category="mains">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a680" alt="Margherita Pizza with mozzarella and basil" class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Margherita Pizza</h3>
+                    <p class="text-gray-600 mb-4">Fresh tomatoes, mozzarella, basil, and olive oil on a crispy crust.</p>
+                    <p class="text-amber-600 font-bold">$12.99</p>
+                </div>
+                <!-- Menu Item 6: Tiramisu -->
+                <div class="menu-item bg-white p-6 rounded-lg shadow-md" data-category="desserts">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0e0b1408a25" alt="Tiramisu with coffee and mascarpone" class="mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Tiramisu</h3>
+                    <p class="text-gray-600 mb-4">Layers of coffee-soaked sponge cake and mascarpone cream.</p>
+                    <p class="text-amber-600 font-bold">$6.99</p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#" class="text-amber-600 font-semibold hover:underline">Download Full Menu (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Make a Reservation</h2>
+            <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+                <div class="mb-4">
+                    <label for="res-name" class="block text-gray-600 mb-2">Full Name</label>
+                    <input type="text" id="res-name" class="w-full p-2 border rounded-md" placeholder="Your Name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="res-email" class="block text-gray-600 mb-2">Email</label>
+                    <input type="email" id="res-email" class="w-full p-2 border rounded-md" placeholder="Your Email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="res-date" class="block text-gray-600 mb-2">Date</label>
+                    <input type="date" id="res-date" class="w-full p-2 border rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="res-time" class="block text-gray-600 mb-2">Time</label>
+                    <input type="time" id="res-time" class="w-full p-2 border rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="res-guests" class="block text-gray-600 mb-2">Number of Guests</label>
+                    <input type="number" id="res-guests" class="w-full p-2 border rounded-md" min="1" max="20" placeholder="1" required>
+                </div>
+                <div class="mb-4">
+                    <label for="res-notes" class="block text-gray-600 mb-2">Special Requests</label>
+                    <textarea id="res-notes" class="w-full p-2 border rounded-md" rows="4" placeholder="Any special requests?"></textarea>
+                </div>
+                <button id="res-submit" class="bg-amber-600 text-white px-6 py-2 rounded-md hover:bg-amber-700 transition">Book Table</button>
+                <p id="res-error" class="text-red-500 mt-2 hidden">Please fill out all required fields correctly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">About Us</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Cozy Bistro interior with warm lighting" class="w-full h-96 object-cover rounded-md">
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <p class="text-lg text-gray-600 mb-4">The Cozy Bistro was founded with a passion for bringing people together through food. Our chefs use only the freshest ingredients to create dishes that delight the senses.</p>
+                    <p class="text-lg text-gray-600">Located in the heart of the city, we offer a warm and welcoming atmosphere perfect for family dinners, romantic dates, or casual gatherings with friends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Contact Info -->
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
+                    <p class="text-gray-600 mb-2"><strong>Address:</strong> 123 Culinary Lane, Food City, FC 12345</p>
+                    <p class="text-gray-600 mb-2"><strong>Phone:</strong> (123) 456-7890</p>
+                    <p class="text-gray-600 mb-2"><strong>Email:</strong> info@cozybistro.com</p>
+                    <p class="text-gray-600 mb-4"><strong>Hours:</strong> Mon-Sun, 11:00 AM - 10:00 PM</p>
+                    <!-- Google Maps -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0190735672094!2d-122.41941568468128!3d37.77492927975955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808f0f0f0f0f%3A0x123456789abcdef0!2s123%20Culinary%20Lane%2C%20San%20Francisco%2C%20CA%2094103%2C%20USA!5e0!3m2!1sen!2sus!4v1634567890123!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="The Cozy Bistro Location"></iframe>
+                </div>
+                <!-- Contact Form -->
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-600 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full p-2 border rounded-md" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-600 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full p-2 border rounded-md" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-600 mb-2">Message</label>
+                            <textarea id="message" class="w-full p-2 border rounded-md" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button id="contact-submit" class="bg-amber-600 text-white px-6 py-2 rounded-md hover:bg-amber-700 transition">Send</button>
+                        <p id="contact-error" class="text-red-500 mt-2 hidden">Please fill out all fields correctly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 The Cozy Bistro. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="https://facebook.com" target="_blank" class="hover:text-amber-600" title="Follow us on Facebook">Facebook</a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-amber-600" title="Follow us on Instagram">Instagram</a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-amber-600" title="Follow us on Twitter">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Menu Filter
+        const filterButtons = document.querySelectorAll('.menu-filter');
+        const menuItems = document.querySelectorAll('.menu-item');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-amber-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-800');
+                });
+                button.classList.remove('bg-gray-200', 'text-gray-800');
+                button.classList.add('bg-amber-600', 'text-white');
+            });
+        });
+
+        // Contact Form Validation
+        const contactForm = document.getElementById('contact-submit');
+        contactForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const error = document.getElementById('contact-error');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (name && emailRegex.test(email) && message) {
+                error.classList.add('hidden');
+                alert('Message sent successfully!');
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                error.classList.remove('hidden');
+            }
+        });
+
+        // Reservation Form Validation
+        const resForm = document.getElementById('res-submit');
+        resForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('res-name').value.trim();
+            const email = document.getElementById('res-email').value.trim();
+            const date = document.getElementById('res-date').value;
+            const time = document.getElementById('res-time').value;
+            const guests = document.getElementById('res-guests').value;
+            const error = document.getElementById('res-error');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (name && emailRegex.test(email) && date && time && guests > 0 && guests <= 20) {
+                error.classList.add('hidden');
+                alert('Reservation submitted successfully!');
+                document.getElementById('res-name').value = '';
+                document.getElementById('res-email').value = '';
+                document.getElementById('res-date').value = '';
+                document.getElementById('res-time').value = '';
+                document.getElementById('res-guests').value = '';
+                document.getElementById('res-notes').value = '';
+            } else {
+                error.classList.remove('hidden');
+            }
+        });
+
+        // Image Load Error Handling
+        document.querySelectorAll('.menu-item img').forEach(img => {
+            img.addEventListener('error', () => {
+                img.src = 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a000';
+                img.alt = 'Fallback food image';
+            });
+        });
+    </script>
+</body>
+</html>
